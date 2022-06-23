@@ -98,3 +98,18 @@ class TestApp(unittest.TestCase):
     def test_function_4(self, doc_number, doc_list):
         remove_doc_from_shelf(doc_number)
         self.assertNotIn(doc_number, doc_list)
+
+
+#test function 5
+    @parameterized.expand(
+        [
+            ("1", True, True),
+            ("2", True, True),
+            ("3", True, True),
+            ("4", True, True),
+            ("888", True, True)
+        ]
+    )
+
+    def test_function_5(self, shelf_number, bool_res, bool_result):
+        self.assertEqual(add_new_shelf(shelf_number, bool_res), (shelf_number, bool_result))
