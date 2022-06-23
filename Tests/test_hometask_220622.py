@@ -113,3 +113,19 @@ class TestApp(unittest.TestCase):
 
     def test_function_5(self, shelf_number, bool_res, bool_result):
         self.assertEqual(add_new_shelf(shelf_number, bool_res), (shelf_number, bool_result))
+        
+
+#test function 6
+    @parameterized.expand(
+        [
+            ("123", '1'),
+            ("456-s", '2'),
+            ("23_57-ds", '3'),
+            ("987654321", '4'),
+            ("dfg-6868-24", '59')
+        ]
+    )
+
+    def test_function_6(self, doc_number, shelf_number):
+        dict_dir = append_doc_to_shelf(doc_number, shelf_number)
+        self.assertIn(doc_number, dict_dir[shelf_number])

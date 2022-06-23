@@ -60,6 +60,7 @@ def add_new_shelf(shelf_number, bool=True):
 def append_doc_to_shelf(doc_number, shelf_number):
     add_new_shelf(shelf_number)
     directories[shelf_number].append(doc_number)
+    return directories
 
 # function 7
 def delete_doc(user_doc_number):
