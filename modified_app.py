@@ -71,7 +71,7 @@ def delete_doc(user_doc_number):
             if doc_number == user_doc_number:
                 documents.remove(current_document)
                 remove_doc_from_shelf(doc_number)
-                return doc_number, True
+                return directories
 
 # function 8
 def get_doc_shelf(user_doc_number):

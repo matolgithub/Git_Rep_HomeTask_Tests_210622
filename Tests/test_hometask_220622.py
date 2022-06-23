@@ -129,3 +129,16 @@ class TestApp(unittest.TestCase):
     def test_function_6(self, doc_number, shelf_number):
         dict_dir = append_doc_to_shelf(doc_number, shelf_number)
         self.assertIn(doc_number, dict_dir[shelf_number])
+
+#test function 7
+    @parameterized.expand(
+        [
+            ('11-2', '1'),
+            ('10006', '2'),
+            ('2207 876234', '1')
+        ]
+    )
+
+    def test_function_7(self, user_doc_number, shelf_number):
+        dict_dir = delete_doc(user_doc_number)
+        self.assertNotIn(user_doc_number, dict_dir[shelf_number])
