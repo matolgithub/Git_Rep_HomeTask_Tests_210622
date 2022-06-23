@@ -79,7 +79,7 @@ def get_doc_shelf(user_doc_number):
     if doc_exist:
         for directory_number, directory_docs_list in directories.items():
             if user_doc_number in directory_docs_list:
-                return directory_number
+                return directory_number, directories
 
 # function 9
 def move_doc_to_shelf(user_doc_number, user_shelf_number):

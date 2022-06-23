@@ -12,14 +12,6 @@ class TestApp(unittest.TestCase):
     def tearDown(self) -> None:
         print("TearDown method")
 
-    @classmethod
-    def setUpClass(cls) -> None:
-        print('==> setUpClass')
-
-    @classmethod
-    def tearDownClass(cls) -> None:
-        print('==> tearDownClass')
-
     #test function 1
     @parameterized.expand(
         [
@@ -100,7 +92,7 @@ class TestApp(unittest.TestCase):
         self.assertNotIn(doc_number, doc_list)
 
 
-#test function 5
+    #test function 5
     @parameterized.expand(
         [
             ("1", True, True),
@@ -115,7 +107,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(add_new_shelf(shelf_number, bool_res), (shelf_number, bool_result))
         
 
-#test function 6
+    #test function 6
     @parameterized.expand(
         [
             ("123", '1'),
@@ -130,7 +122,20 @@ class TestApp(unittest.TestCase):
         dict_dir = append_doc_to_shelf(doc_number, shelf_number)
         self.assertIn(doc_number, dict_dir[shelf_number])
 
-#test function 7
+    # test function 7
+    # @parameterized.expand(
+    #     [
+    #         ('11-2', '1'),
+    #         ('10006', '2'),
+    #         ('2207 876234', '1')
+    #     ]
+    # )
+    #
+    # def test_function_7(self, user_doc_number, shelf_number):
+    #     dict_dir = delete_doc(user_doc_number)
+    #     self.assertNotIn(user_doc_number, dict_dir[shelf_number])
+
+    #test function 8
     @parameterized.expand(
         [
             ('11-2', '1'),
@@ -139,6 +144,6 @@ class TestApp(unittest.TestCase):
         ]
     )
 
-    def test_function_7(self, user_doc_number, shelf_number):
-        dict_dir = delete_doc(user_doc_number)
-        self.assertNotIn(user_doc_number, dict_dir[shelf_number])
+    def test_function_8(self, user_doc_number, shelf_number):
+        dir_num, dict_dir = get_doc_shelf(user_doc_number)
+        self.assertIn(user_doc_number, dict_dir[shelf_number])
