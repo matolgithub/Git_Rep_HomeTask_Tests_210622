@@ -62,3 +62,27 @@ class TestApp(unittest.TestCase):
     )
     def test_function_2(self, user_doc_number, owner_name):
         self.assertNotEqual(get_doc_owner_name(user_doc_number), owner_name)
+
+    # Tests - function 3
+    @parameterized.expand(
+        [
+            ("Василий Гупкин", {"Василий Гупкин", "Геннадий Покемонов", "Аристарх Павлов"}),
+            ("Геннадий Покемонов", {"Василий Гупкин", "Геннадий Покемонов", "Аристарх Павлов"}),
+            ("Аристарх Павлов", {"Василий Гупкин", "Геннадий Покемонов", "Аристарх Павлов"})
+        ]
+    )
+    def test_function_3(self, user, dict_user):
+        dict_user = get_all_doc_owners_names()
+        self.assertIn(user, dict_user)
+
+    @parameterized.expand(
+        [
+            ("", {"Василий Гупкин", "Геннадий Покемонов", "Аристарх Павлов"}),
+            ("757556", {"Василий Гупкин", "Геннадий Покемонов", "Аристарх Павлов"}),
+            ("!+_/", {"Василий Гупкин", "Геннадий Покемонов", "Аристарх Павлов"})
+        ]
+    )
+
+    def test_function_3(self, user, dict_user):
+        dict_user = get_all_doc_owners_names()
+        self.assertNotIn(user, dict_user)
