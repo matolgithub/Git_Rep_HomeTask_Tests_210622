@@ -20,7 +20,7 @@ class TestApp(unittest.TestCase):
     def tearDownClass(cls) -> None:
         print('==> tearDownClass')
 
-    # Tests - function 1
+    #test function 1
     @parameterized.expand(
         [
             ("2207 876234", True),
@@ -37,7 +37,7 @@ class TestApp(unittest.TestCase):
     def test_function_1(self, doc_number, bool_result):
         self.assertEqual(check_document_existance(doc_number), bool_result)
 
-    # Tests - function 2
+    #test function 2
     @parameterized.expand(
         [
             ("2207 876234", "Василий Гупкин"),
@@ -63,7 +63,7 @@ class TestApp(unittest.TestCase):
     def test_function_2(self, user_doc_number, owner_name):
         self.assertNotEqual(get_doc_owner_name(user_doc_number), owner_name)
 
-    # Tests - function 3
+    #test function 3
     @parameterized.expand(
         [
             ("Василий Гупкин", {"Василий Гупкин", "Геннадий Покемонов", "Аристарх Павлов"}),
@@ -86,3 +86,15 @@ class TestApp(unittest.TestCase):
     def test_function_3(self, user, dict_user):
         dict_user = get_all_doc_owners_names()
         self.assertNotIn(user, dict_user)
+
+    # test function 4
+    @parameterized.expand(
+        [
+            ('1', ['2207 876234', '11-2', '5455 028765']),
+            ('2', ['10006']),
+            ('3', [])
+        ]
+    )
+    def test_function_4(self, doc_number, doc_list):
+        remove_doc_from_shelf(doc_number)
+        self.assertNotIn(doc_number, doc_list)
