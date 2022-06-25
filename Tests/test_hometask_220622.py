@@ -75,7 +75,7 @@ class TestApp(unittest.TestCase):
         dict_user = get_all_doc_owners_names()
         self.assertNotIn(user, dict_user)
 
-    # test function 4
+    # test function 4 - successfully
     # @parameterized.expand(
     #     [
     #         ('1', ['2207 876234', '11-2', '5455 028765']),
@@ -88,7 +88,7 @@ class TestApp(unittest.TestCase):
     #     self.assertNotIn(doc_number, doc_list)
 
 
-    #test function 5
+    #test function 5 - successfully
     # @parameterized.expand(
     #     [
     #         ("1", True, True),
@@ -103,7 +103,7 @@ class TestApp(unittest.TestCase):
     #     self.assertEqual(add_new_shelf(shelf_number, bool_res), (shelf_number, bool_result))
         
 
-    #test function 6
+    #test function 6 - successfully
     # @parameterized.expand(
     #     [
     #         ("123", '1'),
@@ -118,7 +118,7 @@ class TestApp(unittest.TestCase):
     #     dict_dir = append_doc_to_shelf(doc_number, shelf_number)
     #     self.assertIn(doc_number, dict_dir[shelf_number])
 
-    # test function 7
+    # test function 7 - successfully
     # @parameterized.expand(
     #     [
     #         ('11-2', '1'),
@@ -153,9 +153,14 @@ class TestApp(unittest.TestCase):
         for doc in doc_list:
             self.assertEqual(show_document_info(doc), f'"{doc[type]}" "{doc[number]}" "{doc[name]}"')
 
-# #test function 11
-#     @parameterized.expand(
-#         ()
-#     )
-#     def test_function_11(self):
-#         self.assertEqual()
+    #test function 11
+    def test_function_11(self):
+        self.assertEqual(modified_app.documents[0]['type'], "passport")
+        self.assertEqual(modified_app.documents[0]['number'], "2207 876234")
+        self.assertEqual(modified_app.documents[0]['name'], "Василий Гупкин")
+        self.assertEqual(modified_app.documents[1]['type'], "invoice")
+        self.assertEqual(modified_app.documents[1]['number'], "11-2")
+        self.assertEqual(modified_app.documents[1]['name'], "Геннадий Покемонов")
+        self.assertEqual(modified_app.documents[2]['type'], "insurance")
+        self.assertEqual(modified_app.documents[2]['number'], "10006")
+        self.assertEqual(modified_app.documents[2]['name'], "Аристарх Павлов")
