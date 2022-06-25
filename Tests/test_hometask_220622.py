@@ -164,3 +164,14 @@ class TestApp(unittest.TestCase):
         self.assertEqual(modified_app.documents[2]['type'], "insurance")
         self.assertEqual(modified_app.documents[2]['number'], "10006")
         self.assertEqual(modified_app.documents[2]['name'], "Аристарх Павлов")
+
+    #test function 12
+    def test_function_12(self):
+        add_new_doc('order', '8888/2022', 'Petrov', '4')
+        self.assertTrue(modified_app.documents[3]['type'])
+        self.assertEqual(modified_app.documents[3]['type'], 'order')
+        self.assertTrue(modified_app.documents[3]['number'])
+        self.assertEqual(modified_app.documents[3]['number'], '8888/2022')
+        self.assertTrue(modified_app.documents[3]['name'])
+        self.assertEqual(modified_app.documents[3]['name'], 'Petrov')
+        self.assertEqual(modified_app.directories['4'], ['8888/2022'])
