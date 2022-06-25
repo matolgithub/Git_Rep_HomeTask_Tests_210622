@@ -1,3 +1,4 @@
 .idea
 __pycache__
 tests/__init__.py
+tests/token*.txt
