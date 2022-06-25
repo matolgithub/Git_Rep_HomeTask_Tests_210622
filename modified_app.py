@@ -93,13 +93,14 @@ def show_document_info(document):
     doc_type = document['type']
     doc_number = document['number']
     doc_owner_name = document['name']
-    show_doc_text = f'{doc_type} "{doc_number}" "{doc_owner_name}"'
+    show_doc_text = f'"{doc_type}" "{doc_number}" "{doc_owner_name}"'
     return show_doc_text
 
 # function 11
 def show_all_docs_info():
     for current_document in documents:
         show_document_info(current_document)
+    return documents
 
 # function 12
 def add_new_doc(new_doc_type, new_doc_number, new_doc_owner_name, new_doc_shelf_number):
